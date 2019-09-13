@@ -1,8 +1,11 @@
 # pi-videocam
 
-This project makes Raspberry Pi into a video camera, e.g. for using it as with HDMI monitor and a simple USB microscope.
+This project makes Raspberry Pi into a video camera, e.g. for using it  with HDMI monitor and a simple USB microscope.
 
-If RPi is headless, upload all files to it From Windows using ```upload.cmd```, then SSH to it and run ```install.sh``` from one of subfolders.
+Either clone Github repo <https://github.com/iva2k/pi-videocam> directly to Pi or upload all files to it over SCP/SSH from Windows (if Git is installed on Windows, it has scp implementation) using ```upload.cmd```, then SSH to Pi and run ```install.sh``` from one of subfolders:
+
+* webcam-server.motion - streams video over Network using Motion package
+* webcam-video.gstreamer - shows video on HDMI monitor using GStreamer/framebuffer
 
 # Dev.Notes
 
