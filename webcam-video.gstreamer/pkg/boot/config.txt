@@ -65,3 +65,8 @@ max_framebuffers=2
 
 disable_splash=1
 boot_delay=0
+
+# Increase GPU memory (from default 64):
+gpu_mem=128
+gpu_mem_512=256
+gpu_mem_1024=256
