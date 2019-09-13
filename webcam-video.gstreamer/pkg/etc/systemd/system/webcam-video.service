@@ -1,0 +1,14 @@
+[Unit]
+Description=Network Video Streaming
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/local/bin/webcam-video-service.sh
+StandardOutput=journal+console
+User=pi
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
