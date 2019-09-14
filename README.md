@@ -75,6 +75,18 @@ sudo apt-get install gstreamer1.0
 then check with:
 
 gst-inspect-1.0 | grep omx
+ omx:  omxmpeg2videodec: OpenMAX MPEG2 Video Decoder
+ omx:  omxmpeg4videodec: OpenMAX MPEG4 Video Decoder
+ omx:  omxh263dec: OpenMAX H.263 Video Decoder
+ omx:  omxh264dec: OpenMAX H.264 Video Decoder
+ omx:  omxtheoradec: OpenMAX Theora Video Decoder
+ omx:  omxvp8dec: OpenMAX VP8 Video Decoder
+ omx:  omxmjpegdec: OpenMAX MJPEG Video Decoder
+ omx:  omxvc1dec: OpenMAX WMV Video Decoder
+ omx:  omxh264enc: OpenMAX H.264 Video Encoder
+ omx:  omxanalogaudiosink: OpenMAX Analog Audio Sink
+ omx:  omxhdmiaudiosink: OpenMAX HDMI Audio Sink
+
 ```
 
 
