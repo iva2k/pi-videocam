@@ -1,15 +1,23 @@
-# pi-videocam
+# pi-videocam / microscope pi
 
-This project makes Raspberry Pi into a video camera, e.g. for using it  with HDMI monitor and a simple USB microscope.
+This project makes Raspberry Pi into a video camera, e.g. for using it with HDMI monitor and a simple USB microscope.
 
 Either clone Github repo <https://github.com/iva2k/pi-videocam> directly to Pi or upload all files to it over SCP/SSH from Windows (if Git is installed on Windows, it has scp implementation) using ```upload.cmd```, then SSH to Pi and run ```install.sh``` from one of subfolders:
 
 * webcam-server.motion - streams video over Network using Motion package
 * webcam-video.gstreamer - shows video on HDMI monitor using GStreamer/framebuffer
 
+Once installed, corresponding service will load on boot.
+
+Note: either -server or -video can run at one time. If both are installed, one of them will not work due to clashing for the camera (something TODO/implement later).
+
 # Dev.Notes
 
-install raspbian lite
+* install raspbian lite
+* change password
+* enable SSH
+* optional: connect to WiFi (or use LAN port for networking)
+* connect USB camera
 
 Check if webcam is supported:
 
@@ -345,5 +353,25 @@ ioctl: VIDIOC_ENUM_FMT
                         Interval: Discrete 0.067s (15.000 fps)
                         Interval: Discrete 0.100s (10.000 fps)
                         Interval: Discrete 0.200s (5.000 fps)5
+
+## Camera Button ##
+
+https://unix.stackexchange.com/questions/398660/detecting-usb-camera-button-event
+
+https://stackoverflow.com/questions/48353121/reading-usb-camera-button-press-event
+
+https://stackoverflow.com/questions/48612210/grab-signal-from-webcam-button
+
+used ```cat /proc/bus/input/devices``` to find event#.
+
+```
+sudo apt-get install evtest
+sudo evtest /dev/input/event3
+```
+
+but no events came. Somehow need to "activate" camera for it to send events. Did not find how that "activation" should be done. Apparently, just running gstreamer on it does not activate it.
+
+Digging further, v4l2src can have extra parameters:
+extra-controls - maps to (or passes values to) v4l2-ctl
 
 ```
