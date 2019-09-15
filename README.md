@@ -353,6 +353,7 @@ ioctl: VIDIOC_ENUM_FMT
                         Interval: Discrete 0.067s (15.000 fps)
                         Interval: Discrete 0.100s (10.000 fps)
                         Interval: Discrete 0.200s (5.000 fps)5
+```
 
 ## Camera Button ##
 
@@ -372,6 +373,7 @@ sudo evtest /dev/input/event3
 but no events came. Somehow need to "activate" camera for it to send events. Did not find how that "activation" should be done. Apparently, just running gstreamer on it does not activate it.
 
 Digging further, v4l2src can have extra parameters:
+
 extra-controls - maps to (or passes values to) v4l2-ctl
 
-```
+Though that did not uncover how to enable the button.
