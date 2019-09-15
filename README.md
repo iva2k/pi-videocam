@@ -279,7 +279,16 @@ https://iotalot.com/2016/05/28/video-streaming-using-raspberry-pi-3-and-usb-webc
 
 
 
-## e.g Microscope ##
+## Works With ##
+
+### 2MP 200x USB Microscope ###
+
+One handy / inexpensive 2M unit: 
+
+<https://www.amazon.com/gp/product/B005P40OXY>
+
+<https://www.amazon.com/gp/product/B0184CCOY0>
+
 
 ```
 v4l2-ctl --list-formats-ext
@@ -357,6 +366,8 @@ ioctl: VIDIOC_ENUM_FMT
 
 ## Camera Button ##
 
+It would be nice to have camera button tied to making frame captures, e.g. to a USB stick. So here's an ongoing investigation on how to implement:
+
 https://unix.stackexchange.com/questions/398660/detecting-usb-camera-button-event
 
 https://stackoverflow.com/questions/48353121/reading-usb-camera-button-press-event
@@ -374,6 +385,6 @@ but no events came. Somehow need to "activate" camera for it to send events. Did
 
 Digging further, v4l2src can have extra parameters:
 
-extra-controls - maps to (or passes values to) v4l2-ctl
+* extra-controls - maps to (or passes values to) v4l2-ctl
 
 Though that did not uncover how to enable the button.
